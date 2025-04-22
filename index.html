@@ -6,10 +6,19 @@
     <title>Galería de Arte Digital</title>
     <link rel="stylesheet" href="CSS/style.css">
 </head>
-<audio autoplay loop hidden>
-    <source src="Audio/Elegant.mp3" type="Audio/mp3">
-</audio>
+
 <body>
+    <!-- Pantalla de bienvenida -->
+    <div id="welcome-screen">
+        <h2>🎨 Bienvenido a la Galería de Arte Digital</h2>
+        <button id="enter-gallery">Entrar con música 🎵</button>
+    </div>
+
+    <!-- Audio de fondo (silenciado hasta la interacción) -->
+    <audio id="background-music" loop>
+        <source src="Audio/Elegant.mp3" type="audio/mp3">
+    </audio>
+
     <h1>Galería de Arte Digital</h1>
     <p class="intro">Descubre increíbles obras de arte digital, interactúa con ellas y sumérgete en un mundo visual único.</p>
 
@@ -38,6 +47,7 @@
             </div>
         </div>
     </div>
+
     <div class="video-section">
         <h2>Bob Ross en acción 🎨</h2>
         <div class="video-container">
@@ -50,10 +60,23 @@
             </iframe>
         </div>
     </div>
-    
+
     <footer>
         <p>Galería de Arte Digital - 2025</p>
         <p>Juherles Bravo/Daniel Montañez</p>
     </footer>
+
+    <script>
+        // Interacción con el botón de bienvenida
+        const enterBtn = document.getElementById('enter-gallery');
+        const welcome = document.getElementById('welcome-screen');
+        const music = document.getElementById('background-music');
+
+        enterBtn.addEventListener('click', () => {
+            welcome.style.display = 'none';  // Ocultar la pantalla de bienvenida
+            music.play();  // Reproducir música al hacer clic
+        });
+    </script>
 </body>
 </html>
+
