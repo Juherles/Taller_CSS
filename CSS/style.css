@@ -1,0 +1,246 @@
+/* Reset de margenes y paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo general */
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-image: url('/IMG/backg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #f5f5f5;
+    text-align: center;
+    padding-bottom: 150px;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: -1;
+}
+
+h1 {
+    font-size: 3rem;
+    color: #fff;
+    margin-top: 50px;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
+}
+
+.intro {
+    font-size: 1.2rem;
+    margin: 20px auto;
+    width: 80%;
+    text-align: center;
+}
+
+/* Contenedor de la galería */
+#gallery {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    padding: 0 10px;
+}
+
+/* Estilo de las obras de arte */
+.artwork {
+    position: relative;
+    width: 30%;
+    margin: 10px;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.6s forwards;
+}
+
+.artwork:nth-child(2) { animation-delay: 0.2s; }
+.artwork:nth-child(3) { animation-delay: 0.4s; }
+
+/* Estilo de las imágenes */
+.artwork img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+    border-radius: 15px;
+}
+
+/* Hover sobre la obra de arte */
+.artwork:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.5);
+}
+
+.artwork:hover img {
+    transform: scale(1.1);
+}
+
+/* Descripción de la obra */
+.info {
+    position: absolute;
+    bottom: 20px;
+    left: 50px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 20px;
+    width: 80%;
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+
+/* Mostrar la descripción al pasar el ratón */
+.artwork:hover .info {
+    opacity: 1;
+}
+
+.info h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+/* Estilo del footer */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* ============================= */
+/* MEDIA QUERIES PARA ADAPTAR LA PAGINA */
+
+/* Para dispositivos móviles (máximo 768px de ancho) */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .intro {
+        font-size: 1rem;
+    }
+
+    #gallery {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .artwork {
+        width: 100%;
+    }
+
+    .info {
+        font-size: 1rem;
+        padding: 10px;
+    }
+}
+
+/* Para pantallas de tabletas (de 768px a 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .intro {
+        font-size: 1.1rem;
+    }
+
+    #gallery {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 20px;
+    }
+
+    .artwork {
+        width: 100%;
+    }
+
+    .info {
+        font-size: 1.2rem;
+    }
+}
+
+/* Para pantallas de escritorio (más de 1024px) */
+@media (min-width: 1024px) {
+    h1 {
+        font-size: 3rem;
+    }
+
+    .intro {
+        font-size: 1.2rem;
+    }
+
+    #gallery {
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+
+    .artwork {
+        width: 30%;
+    }
+
+    .info {
+        font-size: 1.5rem;
+    }
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.video-section {
+    margin: 50px auto;
+    text-align: center;
+    width: 90%;
+    max-width: 800px;
+}
+
+.video-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* Relación 16:9 */
+    height: 0;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 15px;
+}
